@@ -1,0 +1,31 @@
+h1 {
+    text-align: justify;
+    margin-left: auto;
+    margin-right: auto;
+    color: #a52a2a; /* Цвет заголовка */
+    font-size: 44pt; /* Размер шрифта в пунктах */
+    font-family: Century Gothic, sans-serif; /* Семейство шрифтов */
+    font-weight: bold; /* начертание текста  */
+}
+form.form-1 {
+    font-size: 20pt;
+    font-family: Сomic Sans MS, serif;
+    text-align: left; /* Выравнивание по ширине */
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: lightblue;
+    border: 3px solid gray;
+    border-radius: 10px;
+    padding: 15px;
+}
+h2 {
+    font-size: 34pt; /* Размер шрифта в пунктах */
+    font-family: Century Gothic, sans-serif; /* Семейство шрифтов */
+    font-weight: bold; /* начертание текста  */
+}
+ul {
+    text-align: left;
+    font-size: 15pt;
+    font-family: Сomic Sans MS, serif;
+}
