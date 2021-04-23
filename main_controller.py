@@ -9,7 +9,7 @@ def index():
     if request.method == 'GET':
         return render_template("index.html")
     elif request.method == 'POST':
-        return redirect('/registration')
+        return "ssssaasasasdddvfgtrghsra"
 
 
 @app.route('/registration')
