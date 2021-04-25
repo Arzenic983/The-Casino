@@ -1,12 +1,20 @@
 h1 {
+    background: #ffba00;
+    height: 65pt;
     text-align: justify;
     margin-left: auto;
     margin-right: auto;
-    color: #a52a2a; /* Цвет заголовка */
+    color: #0e0f1c; /* Цвет заголовка */
     font-size: 44pt; /* Размер шрифта в пунктах */
-    font-family: Century Gothic, sans-serif; /* Семейство шрифтов */
+    font-family: Georgia, serif; /* Семейство шрифтов */
     font-weight: bold; /* начертание текста  */
 }
+
+body {
+    background-color: #0a0a0a; /* Цвет фона */
+}
+
+
 form.form-1 {
     font-size: 20pt;
     font-family: Сomic Sans MS, serif;
@@ -14,18 +22,41 @@ form.form-1 {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
-    background-color: lightblue;
-    border: 3px solid gray;
-    border-radius: 10px;
+    background-color: rgba(255, 186, 0, 0.83);
+    border: 3px #ffba00;
+
     padding: 15px;
 }
+
+div {
+    height:190pt;
+    width:800pt;
+    background-color:#151719;
+}
+
 h2 {
+    color: #ffba00;
     font-size: 34pt; /* Размер шрифта в пунктах */
     font-family: Century Gothic, sans-serif; /* Семейство шрифтов */
     font-weight: bold; /* начертание текста  */
 }
 ul {
+    color: #ffba00;
     text-align: left;
     font-size: 15pt;
     font-family: Сomic Sans MS, serif;
 }
+
+btn {
+        border: none;
+        border-radius: 5px;
+        padding: 10px 25px;
+        background: #ffba00;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: black;
+        }
+btn:hover {
+        background: #ff9900;
+    }
