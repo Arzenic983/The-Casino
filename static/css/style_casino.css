@@ -1,0 +1,32 @@
+html, body {
+	margin: 0;
+}
+.header {
+	background: #cb2d41;
+	height: 100px;
+	text-align: center;
+}
+.casino-title {
+	font-family: SansSerif, sans-serif;
+	font-weight: 900;
+	color: white;
+	font-size: 40pt;
+	line-height: 110px;
+	position: absolute;
+}
+.username {
+	color: white;
+	display: inline;
+	position: absolute;
+	text-align: center;
+	top: 30px;
+}
+.logout-button {
+	display: inline;
+	font-size: 20pt;
+	text-align: right;
+	position: absolute;
+	margin-right: auto;
+	right: 25px;
+	top: 25px;
+}

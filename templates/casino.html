@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SPIN!</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/style_casino.css">
+</head>
+<body>
+<header class="header">
+    <h1 class="casino-title">Casino-Hardware</h1>
+    <h2 class="username">Имя пользователя: {{ user }}; Баланс: {{ balance }}</h2>
+    <button class="logout-button"><a href="/logout">Выйти</a></button>
+</header>
+<table border="1" width="100%" cellpadding="5">
+   <tr>
+    <th>Слот 1</th>
+    <th>Слот 2</th>
+    <th>Слот 3</th>
+   </tr>
+   <tr>
+    <td>
+            <img src="static/img/{{ slot[0] }}.jpg" width="500" height="350">
+    </td>
+    <td>
+            <img src="static/img/{{ slot[1] }}.jpg" width="500" height="350">
+    </td>
+    <td>
+            <img src="static/img/{{ slot[2] }}.jpg" width="500" height="350">
+    </td>
+</table>
+<form method="post"><button value="1" type="submit">Отобрать видеокарту у майнера!</button></form>
+<div>{{ message }}</div>
+</body>
+</html>

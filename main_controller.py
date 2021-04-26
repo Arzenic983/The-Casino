@@ -2,7 +2,10 @@ from flask import *
 from data import db_session
 from data.user import User
 from flask_wtf_classes import LoginForm, RegisterForm
-from flask_login import LoginManager, login_user, login_required, logout_user, current_user
+from flask_login import LoginManager, \
+    login_user, login_required, \
+    logout_user, current_user
+from slot_machine import *
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
@@ -79,8 +82,8 @@ def login():
                                    message='Пароль не подходит!')
         else:
             login_user(iuser, remember=form.remember_me.data)
-            print(f" * Кто-то успешно зарегался с ником {iuser.nickname}!")
-            return redirect('/success')
+            print(f" * Кто-то успешно вошел с ником {iuser.nickname}!")
+            return redirect('/casino')
 
     return render_template('login.html', title='Авторизация', form=form)
 
@@ -88,19 +91,47 @@ def login():
 @app.route('/logout')
 @login_required
 def logout():
-    print(f" * разлогинился {current_user.nickname}")
+    print(f" * Разлогинился {current_user.nickname}")
     logout_user()
     return redirect("/")
 
 
-@app.route('/success')
-def success():
-    if current_user.is_authenticated:
-        print(f" * К нам подключился {current_user.nickname}")
-        return "registration successful!"
-    else:
-        print(" * ТРЕВОГА!!! ЭТО ОРГАБЛЕНИЕ!!! СРОЧНО УРОНИ СЕРВЕР! НОГОЙ")
-        return "YOU SHALL NOT PASS..."
+@app.route('/casino', methods=['GET', 'POST'])
+@login_required
+def casino():
+    print(f' * {current_user.nickname} играет в казино')
+    if request.method == 'POST':
+        dbs = db_session.create_session()
+        if current_user.money < 10:
+            print(f" * у {current_user.nickname} кончились badcoin-ы")
+            return render_template('casino.html',
+                                   user=current_user.nickname,
+                                   balance=current_user.money,
+                                   slot=[0, 0, 0],
+                                   message='Какая жалость, у вас кончились деньги... приходите завтра!')
+
+        else:
+            current_user.money -= 10
+            result = spin()
+            current_user.money += result[1]
+            iuser = dbs.query(User).filter(User.nickname == current_user.nickname).first()
+            iuser.money = current_user.money
+            dbs.add(iuser)
+            dbs.commit()
+            if result[1] != 0:
+                print(f' * {current_user.nickname} выиграл {result[1]} монет')
+            else:
+                print(f' * {current_user.nickname} проиграл')
+            return render_template('casino.html',
+                                   user=current_user.nickname,
+                                   balance=current_user.money,
+                                   slot=result[0],
+                                   message=result[2])
+    return render_template('casino.html',
+                           user=current_user.nickname,
+                           balance=current_user.money,
+                           slot=[0, 0, 0],
+                           message='')
 
 
 def main_f():
