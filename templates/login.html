@@ -5,8 +5,8 @@
     <form action="" method="post">
         {{ form.hidden_tag() }}
         <p>
-            {{ form.nickname.label }}<br>
-            {{ form.nickname(class="form-control") }}<br>
+            {{ form.nickname.label(class="text") }}<br>
+            {{ form.nickname(class="input") }}<br>
             {% for error in form.nickname.errors %}
             <div class="alert alert-danger" role="alert">
                 {{ error }}
@@ -15,8 +15,8 @@
         </p>
 
         <p>
-            {{ form.password.label }}<br>
-            {{ form.password(class="form-control", type="password") }}<br>
+            {{ form.password.label(class="text") }}<br>
+            {{ form.password(class="input", type="password") }}<br>
             {% for error in form.password.errors %}
                 <div class="alert alert-danger" role="alert">
                     {{ error }}
@@ -24,8 +24,8 @@
             {% endfor %}
         </p>
 
-        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
-        <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+        <p>{{ form.remember_me() }} {{ form.remember_me.label(class="btn-dop") }}</p>
+        <p>{{ form.submit(type="submit", class="btn") }}</p>
         <div>{{message}}</div>
     </form>
 {% endblock %}
