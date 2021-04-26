@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Регистрация</h1>
+<h1>Продажа вашей души</h1>
 <form action="" method="post" novalidate>
     {{ form.hidden_tag() }}
     <p>
-        {{ form.mail.label }}<br>
-        {{ form.mail(class="form-control", type="email") }}<br>
+        {{ form.mail.label(class="text") }}<br>
+        {{ form.mail(class="input", type="email") }}<br>
         {% for error in form.mail.errors %}
             <p class="alert alert-danger" role="alert">
                 {{ error }}
@@ -14,8 +14,8 @@
         {% endfor %}
     </p>
     <p>
-        {{ form.password.label }}<br>
-        {{ form.password(class="form-control", type="password") }}<br>
+        {{ form.password.label(class="text") }}<br>
+        {{ form.password(class="input", type="password") }}<br>
         {% for error in form.password.errors %}
             <p class="alert alert-danger" role="alert">
                 {{ error }}
@@ -23,8 +23,8 @@
         {% endfor %}
     </p>
     <p>
-        {{ form.password_again.label }}<br>
-        {{ form.password_again(class="form-control", type="password") }}<br>
+        {{ form.password_again.label(class="text") }}<br>
+        {{ form.password_again(class="input", type="password") }}<br>
         {% for error in form.password_again.errors %}
             <p class="alert alert-danger" role="alert">
                 {{ error }}
@@ -32,16 +32,17 @@
         {% endfor %}
     </p>
     <p>
-        {{ form.nickname.label }}<br>
-        {{ form.nickname(class="form-control") }}<br>
+        {{ form.nickname.label(class="text")}}<br>
+        {{ form.nickname(class="input") }}<br>
         {% for error in form.nickname.errors %}
             <p class="alert alert-danger" role="alert">
                 {{ error }}
             </p>
         {% endfor %}
     </p>
-    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
-    <button><a href="/login">Уже зарегистрированны? Войти!</a></button>
+    {{form.submit(type="submit", class="btn")}}<br>
+    <p></p>
+    <a href="/login" class="btn-dop">Уже зарегистрированы? Войти!</a><br>
     {{message}}
 
 </form>
